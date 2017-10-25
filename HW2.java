@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author B0544203石家安
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -19,15 +19,15 @@ public class HW2 {
 		deck.printDeck();
 		
 		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
-			System.out.println("Well done!");
+			System.out.println("\nWell done!");
 		}else{
 			System.out.println("Error, please check your sourse code");
 		}
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards 所有的牌
-	 * @param nDeck 總共有幾副牌
+	 * @param allCards �������
+	 * @param nDeck 蝮賢��嗾����
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -56,7 +56,8 @@ public class HW2 {
 					break;
 				}
 			}
-		}else{
+		}
+		else{
 			isCorrect=false;
 		}
 		return isCorrect;
@@ -71,6 +72,15 @@ class Deck{
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		
+		for(int quantity=1; quantity<=nDeck; quantity++){
+			for(int x=1; x<=4; x++){
+				for(int y=1; y<=13; y++){
+					cards.add(new Card(x,y)); 
+				}
+			}
+		}
+		
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
@@ -81,6 +91,10 @@ class Deck{
 	}	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
+		for(int i = 0; i < cards.size(); i++) {   
+			Card allcards = cards.get(i);
+			allcards.printCard();
+		}  
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
 
@@ -105,6 +119,10 @@ class Card{
 	}	
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
+		String[] SuitArray={"Clubs","Diamonds","Hearts","Spades"};
+		String[] RankArray={"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
+		System.out.println(SuitArray[suit-1]+" "+RankArray[rank-1]);
+
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
 
 	}
