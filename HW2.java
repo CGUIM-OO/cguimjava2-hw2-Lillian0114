@@ -3,8 +3,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author B0544203石家安
- * Try to write some comments for your codes (methods, 15 points)
+ * @author B0544203 石家安
+ * First, we input the how many deck that I want. Next, the HW2 have two classes,class and card.
+ * If the print card is correct, it will represent the Well done!
  */
 public class HW2 {
 
@@ -15,7 +16,6 @@ public class HW2 {
         
 		int nDeck=Integer.parseInt(testn);
 		Deck deck=new Deck(nDeck);
-		//TODO: please check your output, make sure that you print all cards on your screen (10 points)
 		deck.printDeck();
 		
 		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
@@ -26,8 +26,8 @@ public class HW2 {
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards �������
-	 * @param nDeck 蝮賢��嗾����
+	 * @param allCards
+	 * @param nDeck
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -65,46 +65,54 @@ public class HW2 {
 
 }
 /**
- * Description: TODO: please add description here
+ * Description: 
+ * We describe the Deck in the beginning. 
+ * First, we can use nested loops to put the card into "cards".
+ * quantity is the count of Deck(nDeck).
+ * x  is the code of rank
+ * y  is the code of suit
+ * When the quantity is 1 and the program will run x = 1, and then the program will run y=1 from y=13 and so on the next program.
+ * card  is the object to add card into "cards".
+ * Afterward, we can do the printDeck method. Create the allcards and get the card from "cards". In the end, we can printcard.  
+ * 
  */
 class Deck{
 	private ArrayList<Card> cards;
-	//TODO: Please implement the constructor (30 points)
+	/**
+	 *
+	 * @param nDeck how many deck you input
+	 */
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
 		
 		for(int quantity=1; quantity<=nDeck; quantity++){
 			for(int x=1; x<=4; x++){
 				for(int y=1; y<=13; y++){
-					cards.add(new Card(x,y)); 
+					Card card = new Card(x,y);
+					cards.add(card); 
 				}
 			}
 		}
-		
-		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
-		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
-		//Sample code start
-		//Card card=new Card(1,1); ->means new card as clubs ace
-		//cards.add(card);
-		//Sample code end
-
 	}	
-	//TODO: Please implement the method to print all cards on screen (10 points)
+
 	public void printDeck(){
 		for(int i = 0; i < cards.size(); i++) {   
 			Card allcards = cards.get(i);
 			allcards.printCard();
 		}  
-		//Hint: print all items in ArrayList<Card> cards, 
-		//TODO: please implement and reuse printCard method in Card class (5 points)
 
 	}
 	public ArrayList<Card> getAllCards(){
 		return cards;
 	}
 }
+
 /**
- * Description: TODO: please add description here
+ * Description: First, writing the class, Card, and int the field suit and rank.
+ * Furthermore, writing the constructors.
+ * Next, printCard, getSuit and getRank is the method.
+ * Create the two array to present the rank and suit conveniently. 
+ * The first index of array is 0, so we should subtract 1 when we want to get the String from array.  
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
@@ -113,17 +121,16 @@ class Card{
 	 * @param s suit
 	 * @param r rank
 	 */
+	
 	public Card(int s,int r){
 		suit=s;
 		rank=r;
 	}	
-	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
 		String[] SuitArray={"Clubs","Diamonds","Hearts","Spades"};
 		String[] RankArray={"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
 		System.out.println(SuitArray[suit-1]+" "+RankArray[rank-1]);
 
-		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
 
 	}
 	public int getSuit(){
