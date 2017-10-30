@@ -72,8 +72,9 @@ public class HW2 {
  * x  is the code of rank
  * y  is the code of suit
  * When the quantity is 1 and the program will run x = 1, and then the program will run y=1 from y=13 and so on the next program.
- * card  is the object to add card into "cards".
- * Afterward, we can do the printDeck method. Create the allcards and get the card from "cards". In the end, we can printcard.  
+ * card is the field to add card into "cards".
+ * Afterward, we can do the printDeck method. Create "allcards" and get the card from "cards". 
+ * In the end, we can reuse the printcard method.  
  * 
  */
 class Deck{
@@ -95,7 +96,7 @@ class Deck{
 		}
 	}	
 
-	public void printDeck(){
+	public void printDeck(){ 
 		for(int i = 0; i < cards.size(); i++) {   
 			Card allcards = cards.get(i);
 			allcards.printCard();
@@ -127,7 +128,7 @@ class Card{
 		rank=r;
 	}	
 	public void printCard(){
-		String[] SuitArray={"Clubs","Diamonds","Hearts","Spades"};
+		String[] SuitArray={"Club","Diamond","Heart","Spade"};
 		String[] RankArray={"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
 		System.out.println(SuitArray[suit-1]+" "+RankArray[rank-1]);
 
